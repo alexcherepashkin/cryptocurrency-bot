@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  postgres-test:
+    image: postgres
+    container_name: postgres-test
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tg_db
+    ports:
+      - "5432:5432"
+    networks:
+      - test-app
+
+networks:
+  test-app:
+    driver: bridge
